@@ -1,0 +1,395 @@
+#----------------------------------------------------------------------
+Programming Assignment 01b
+
+#----------------------------------------------------------------------
+Purpose:
+
+  * Demonstrate that you are Still Smarter Than a Fifth Grader by
+    writing some Heap / Heap Sort / Merge Sort routines in C.
+
+#----------------------------------------------------------------------
+Background:
+
+  * We've covered these sorts in nauseating detail in class.
+    Now you get to show that your are Still Smarter Than a Fifth
+    Grader by actually writing these sorts in C.
+
+  * You get for free a template file (HMRoutines.c) in which
+    all you have to do is write the actual sorts.
+
+  * You also get for free a spiffy test harness that will call
+    your sort routines supplying an input array that is already in
+    ascending order, in descending order, or in shuffled (random)
+    order.
+
+  * This harness will also time how long your routine takes, run
+    the tests a given number of times (and average their
+    performance), and check whether the output is in the correct
+    order.  Nifty, huh?
+
+#----------------------------------------------------------------------
+Tasks:
+
+  1. Download HMWK_01b_dalioba.zip from Blackboard.
+
+  2. Unzip the file somewhere convenient.
+
+  3. Change 'dalioba' in the name of the directory to your NetID.
+     (Your NetID is three letters followed by four or five digits.
+      The directory name will now be something like
+      'hmwk_01b_abc1234', but with YOUR NetID instead of
+      'abc1234'.  Do NOT use your Student ID!  Use your NetID!)
+
+  4. Look in that directory.
+
+  5. Change the header lines in the template file HMroutines.c.
+
+      -- Line 1:  Family name first, then a comma, then
+                  personal name.
+
+      -- Line 2:  Your NetID.
+
+      -- Line 3:  The date you edited the file, YYYY-MM-DD.
+
+  6. Do NOT change anything in any of the other files.
+
+  7. Before writing your versions of the routines, compile and run
+     the template using these commands:
+
+      $ gcc -o test testHMRoutines.c HMRoutines.c support.c
+
+      $ ./test 1000 1 1 1
+
+     In that test command, the '1000' means test the sorting
+     algorithm on an array of 1000 elements.  The '1 1 1' means to
+     do one test with the input elements in ascending order, one
+     test with the elements in descending order, and one test with
+     the elements in shuffled order.
+
+     You should see output similar to this:
+
+=== Heap Sort ===
+--- Ascending test
+ 1/ 1: fill 0.000s, run 0.000s, 0 errors.
+--- Descending test
+Oops: A[0] >= A[1] : 1,000 >= 999
+Oops: A[1] >= A[2] : 999 >= 998
+Oops: A[2] >= A[3] : 998 >= 997
+Oops: A[3] >= A[4] : 997 >= 996
+Oops: A[4] >= A[5] : 996 >= 995
+  ...
+ 1/ 1: fill 0.000s, run 0.000s, 999 errors.
+--- Shuffle test
+Oops: A[0] >= A[1] : 820 >= 371
+Oops: A[4] >= A[5] : 837 >= 10
+Oops: A[6] >= A[7] : 836 >= 564
+Oops: A[8] >= A[9] : 587 >= 292
+Oops: A[10] >= A[11] : 749 >= 711
+  ...
+ 1/ 1: fill 0.000s, run 0.000s, 489 errors.
+=== Merge Sort ===
+--- Ascending test
+ 1/ 1: fill 0.000s, run 0.000s, 0 errors.
+--- Descending test
+Oops: A[0] >= A[1] : 1,000 >= 999
+Oops: A[1] >= A[2] : 999 >= 998
+Oops: A[2] >= A[3] : 998 >= 997
+Oops: A[3] >= A[4] : 997 >= 996
+Oops: A[4] >= A[5] : 996 >= 995
+  ...
+ 1/ 1: fill 0.000s, run 0.000s, 999 errors.
+--- Shuffle test
+Oops: A[1] >= A[2] : 793 >= 263
+Oops: A[3] >= A[4] : 836 >= 784
+Oops: A[5] >= A[6] : 991 >= 792
+Oops: A[6] >= A[7] : 792 >= 222
+Oops: A[8] >= A[9] : 715 >= 368
+  ...
+ 1/ 1: fill 0.000s, run 0.000s, 513 errors.
+
+     Notice that the test harness ran one ascending test, one
+     descending test, and one shuffled test and each test was on
+     an input array of 1000 elements for each of Heap Sort and
+     Merge Sort.
+
+     Also notice that the descending and shuffled tests failed
+     since you haven't written your sort yet.
+
+     The descending test had 999 elements out of order.  (Why
+     isn't this 1000 elements out of order?  (This was mentioned
+     in the discussion of Homework 01a.))
+
+     The shuffled input array is in a random order, so on average
+     it will have about half of the elements out of order.  You
+     will (probably) see a different number of elements out of
+     order.  Run the shuffled test a few times to see the varying
+     number of elements that are detected as out of order when no
+     sorting is done.
+
+  8. Now take a look at HMRoutines.c.  You have to write the
+     following routines:
+
+        Line
+        ====
+        [12] LEFT(int i)
+        [13] RIGHT(int i)
+        [14] PARENT(int i)
+        [16] maxHeapify( int *A, int size, int heapsize, int i )
+        [27] buildMaxHeap( int *A, int size )
+        [36] heapSort( int *A, int size )
+        [49] merge( int *A, int p, int q, int r )
+        [64] mergeSort( int *A, int p, int r )
+
+     Do NOT change anything in the [77] mergeSortTop routine.
+     That routine allocates / deallocates the extra space
+     subarrays for you and calls mergeSort with the proper
+     arguments.
+
+     After you demonstrate you are Smarter Than A Fifth Grader by
+     writing these routines, you can test them by recompiling and
+     trying the following:
+
+$ ./test 5000000 3 3 3
+5,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 3: fill 0.019s, run 1.754s, 0 errors.
+ 2/ 3: fill 0.008s, run 1.755s, 0 errors.
+ 3/ 3: fill 0.008s, run 1.760s, 0 errors.
+Average run time 1.756s
+--- Descending test
+ 1/ 3: fill 0.011s, run 1.716s, 0 errors.
+ 2/ 3: fill 0.012s, run 1.691s, 0 errors.
+ 3/ 3: fill 0.012s, run 1.697s, 0 errors.
+Average run time 1.701s
+--- Shuffle test
+ 1/ 3: fill 0.151s, run 2.395s, 0 errors.
+ 2/ 3: fill 0.151s, run 2.403s, 0 errors.
+ 3/ 3: fill 0.153s, run 2.396s, 0 errors.
+Average run time 2.398s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 3: fill 0.008s, run 0.582s, 0 errors.
+ 2/ 3: fill 0.008s, run 0.577s, 0 errors.
+ 3/ 3: fill 0.008s, run 0.577s, 0 errors.
+Average run time 0.578s
+--- Descending test
+ 1/ 3: fill 0.012s, run 0.576s, 0 errors.
+ 2/ 3: fill 0.011s, run 0.577s, 0 errors.
+ 3/ 3: fill 0.012s, run 0.577s, 0 errors.
+Average run time 0.577s
+--- Shuffle test
+ 1/ 3: fill 0.163s, run 0.974s, 0 errors.
+ 2/ 3: fill 0.153s, run 0.973s, 0 errors.
+ 3/ 3: fill 0.151s, run 0.977s, 0 errors.
+Average run time 0.975s
+
+     The run times that you see depend on how fast your machine
+     happens to be.  Also, we went from running each test only
+     once to running them three times each and averaging the
+     amount of time it takes.  That helps even out slight
+     differences in timing.
+
+     If you get a crash or having any errors reported, your
+     routines have some sort of problem.  FIX IT!  Routines that
+     crash or do not get the correct answers score ZERO points.
+
+     Notice that this test was done with 5,000,000 elements in the
+     array.  Much smaller arrays get sorted so fast it's hard to
+     get a meaningful time measurement.
+
+  9. Here's another test with a more substantial input array:
+
+$ ./test 25000000 3 3 3
+25,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 3: fill 0.070s, run 9.628s, 0 errors.
+ 2/ 3: fill 0.040s, run 9.604s, 0 errors.
+ 3/ 3: fill 0.041s, run 9.611s, 0 errors.
+Average run time 9.614s
+--- Descending test
+ 1/ 3: fill 0.058s, run 9.340s, 0 errors.
+ 2/ 3: fill 0.058s, run 9.330s, 0 errors.
+ 3/ 3: fill 0.058s, run 9.311s, 0 errors.
+Average run time 9.327s
+--- Shuffle test
+ 1/ 3: fill 1.106s, run 15.557s, 0 errors.
+ 2/ 3: fill 1.106s, run 15.545s, 0 errors.
+ 3/ 3: fill 1.109s, run 15.581s, 0 errors.
+Average run time 15.561s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 3: fill 0.040s, run 3.223s, 0 errors.
+ 2/ 3: fill 0.041s, run 3.145s, 0 errors.
+ 3/ 3: fill 0.040s, run 3.146s, 0 errors.
+Average run time 3.171s
+--- Descending test
+ 1/ 3: fill 0.058s, run 3.140s, 0 errors.
+ 2/ 3: fill 0.058s, run 3.144s, 0 errors.
+ 3/ 3: fill 0.058s, run 3.138s, 0 errors.
+Average run time 3.141s
+--- Shuffle test
+ 1/ 3: fill 1.106s, run 5.327s, 0 errors.
+ 2/ 3: fill 1.107s, run 5.401s, 0 errors.
+ 3/ 3: fill 1.106s, run 5.328s, 0 errors.
+Average run time 5.352s
+
+ 10. And a run with an even more substantial input array:
+
+$ ./test 50000000 3 3 3
+50,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 3: fill 0.135s, run 20.107s, 0 errors.
+ 2/ 3: fill 0.080s, run 20.153s, 0 errors.
+ 3/ 3: fill 0.080s, run 20.147s, 0 errors.
+Average run time 20.136s
+--- Descending test
+ 1/ 3: fill 0.115s, run 19.505s, 0 errors.
+ 2/ 3: fill 0.115s, run 19.467s, 0 errors.
+ 3/ 3: fill 0.115s, run 19.696s, 0 errors.
+Average run time 19.556s
+--- Shuffle test
+ 1/ 3: fill 2.370s, run 34.234s, 0 errors.
+ 2/ 3: fill 2.376s, run 34.193s, 0 errors.
+ 3/ 3: fill 2.374s, run 34.240s, 0 errors.
+Average run time 34.222s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 3: fill 0.080s, run 6.647s, 0 errors.
+ 2/ 3: fill 0.080s, run 6.704s, 0 errors.
+ 3/ 3: fill 0.080s, run 6.527s, 0 errors.
+Average run time 6.626s
+--- Descending test
+ 1/ 3: fill 0.115s, run 6.773s, 0 errors.
+ 2/ 3: fill 0.115s, run 6.513s, 0 errors.
+ 3/ 3: fill 0.115s, run 6.523s, 0 errors.
+Average run time 6.603s
+--- Shuffle test
+ 1/ 3: fill 2.368s, run 11.079s, 0 errors.
+ 2/ 3: fill 2.371s, run 11.182s, 0 errors.
+ 3/ 3: fill 2.372s, run 11.069s, 0 errors.
+Average run time 11.110s
+
+ 11. We went from 5,000,000 elements to 25,000,000 elements to
+     50,000,000 elements and the run times for the Heap Sort
+     descending input array went from an average of 1.701 to an
+     average of 9.327 to an average of 19.556.  Can you justify
+     that?
+
+     What about Merge Sort going from 0.577 to 3.141 to 6.603?
+
+ 12. The average times for the Heap sort shuffled tests went from
+     2.398 to 15.561 to 34.222.  Can you justify not only the
+     increases but also the relationship to the average times of
+     the descending sort?  If Heap Sort's best and worse cases
+     have the same time complexity, why are these numbers so
+     different from the ascending case?
+
+     What about Merge Sort going from 0.975 to 5.352 to 11.110?
+     How do you justify this progression?  Why is it so different
+     from Heap Sort's results if the two algorithms have the same
+     time complexity?
+
+#----------------------------------------------------------------------
+Code Submission:
+
+Make a zipfile of your 'hmwk_01b_abc1234' directory (where
+'abc1234' is replaced with YOUR NetID) and submit it on Blackboard
+as your code results for this assignment.  Your submission should
+be a zipfile that has exactly one item in it, a directory named
+'hmwk_01b_abc1234' (where 'abc1234' is YOUR NetID).  Inside that
+directory should be your source file, HMRoutines.c.
+
+There will be a question / answer submission posted separate from
+this code submission.
+
+#----------------------------------------------------------------------
+Hints:
+  1. Ensure that you update the three header lines in the
+     HMRoutines.c source file with YOUR name (family name
+     first, then a comma, then your personal name), YOUR NetID,
+     and the date you edit the file.
+
+     Not updating the header lines properly will cost you points.
+
+  2. Ensure your submission to Blackboard is packaged EXACTLY as
+     described above.
+
+      -- Your submission should be a ZIP FILE (not a tar, rar, gz,
+         or any other kind of compressed file).
+
+      -- The zip file should be named 'hmwk_01b_abc1234.zip' (with
+         'abc1234' replaced with YOUR NetID.).
+
+      -- This zip file should have ONE item in it, a directory
+         named 'hmwk_01b_abc1234'  (with 'abc1234' replaced with
+         YOUR NetID).
+
+      -- Your source file should be in that directory.  The
+         source file should be named HMRoutines.c.
+
+     Submissions in the wrong format score ZERO points.
+
+  3. Ensure your program compiles and runs correctly.  Not
+     compiling or crashing or not correctly sorting will cost you
+     points.
+
+  4. The most common mistake is not taking into account that the
+     algorithms as discussed in class index arrays from 1 to n
+     while C indexes arrays from 0 to n-1.
+
+     This has a SIGNIFICANT effect on manipulating the array and
+     the limits of for loops.  Be very careful to get your indices
+     correct.
+
+     Be very careful when defining LEFT(), RIGHT(), and PARENT().
+     When the array the heap is in is numbered 0 .. n-1, these
+     definitions are slightly different from those discussed in
+     class.
+
+  5. These routines are not complex.  Frankly, you should be able
+     to write the C versions essentially line-for-line from the
+     pseudo-code version we discussed in class.
+
+     Just FYI, the bodies of the reference versions of these
+     routines have these many lines of code:
+
+        [ 1] LEFT(int i)
+        [ 1] RIGHT(int i)
+        [ 1] PARENT(int i)
+        [13] maxHeapify( int *A, int size, int heapsize, int i )
+        [ 3] buildMaxHeap( int *A, int size )
+        [ 7] heapSort( int *A, int size )
+        [17] merge( int *A, int p, int q, int r )
+        [ 6] mergeSort( int *A, int p, int r )
+        ====
+         49 lines of code in all
+
+     (And I put close braces on their own lines! :)
+
+     You might end up with a bit more or less depending on how you
+     choose to code, but if you find yourself writing a lot more
+     code than this, you are probably making too much out of this
+     assignment.
+
+  6. Ensure your program compiles and runs correctly with
+     ABSOLUTELY NO CHANGES made to ANY file other than the
+     template file HMRoutines.c.  Your HMRoutines.c file
+     will be tested against the reference version of all of the
+     other files.  If your HMRoutines.c does not compile or
+     crashes or incorrectly sorts when tested using the reference
+     versions of the other files, you will score ZERO points.
+
+  7. After you submit your zip file on Blackboard, download it
+     from Blackboard and check that your submission is in the
+     proper format, that the program runs and prints the correct
+     output, and that you updated the header lines correctly in
+     the source file HMRoutines.c.
+
+  8. Are you CERTAIN you complied with all of these nit-picking
+     instructions?  Really?  Maybe you ought to check just one
+     more time. :)
+
+#----------------------------------------------------------------------

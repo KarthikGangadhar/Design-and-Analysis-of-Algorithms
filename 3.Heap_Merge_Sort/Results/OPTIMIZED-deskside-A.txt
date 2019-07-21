@@ -1,0 +1,989 @@
++ gcc -Ofast -o test -I. testHMRoutines.c Answers/HMRoutines.c support.c
++ ./test 10000000 6 6 6
+10,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.017s, run 1.132s, 0 errors.
+ 2/ 6: fill 0.004s, run 1.081s, 0 errors.
+ 3/ 6: fill 0.004s, run 1.072s, 0 errors.
+ 4/ 6: fill 0.004s, run 1.069s, 0 errors.
+ 5/ 6: fill 0.004s, run 1.099s, 0 errors.
+ 6/ 6: fill 0.004s, run 1.073s, 0 errors.
+Average run time 1.087s
+--- Descending test
+ 1/ 6: fill 0.004s, run 1.080s, 0 errors.
+ 2/ 6: fill 0.004s, run 1.082s, 0 errors.
+ 3/ 6: fill 0.004s, run 1.079s, 0 errors.
+ 4/ 6: fill 0.004s, run 1.089s, 0 errors.
+ 5/ 6: fill 0.004s, run 1.081s, 0 errors.
+ 6/ 6: fill 0.004s, run 1.081s, 0 errors.
+Average run time 1.082s
+--- Shuffle test
+ 1/ 6: fill 0.325s, run 2.209s, 0 errors.
+ 2/ 6: fill 0.321s, run 2.211s, 0 errors.
+ 3/ 6: fill 0.321s, run 2.209s, 0 errors.
+ 4/ 6: fill 0.324s, run 2.222s, 0 errors.
+ 5/ 6: fill 0.320s, run 2.210s, 0 errors.
+ 6/ 6: fill 0.320s, run 2.215s, 0 errors.
+Average run time 2.212s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.004s, run 0.327s, 0 errors.
+ 2/ 6: fill 0.004s, run 0.325s, 0 errors.
+ 3/ 6: fill 0.004s, run 0.327s, 0 errors.
+ 4/ 6: fill 0.004s, run 0.326s, 0 errors.
+ 5/ 6: fill 0.004s, run 0.327s, 0 errors.
+ 6/ 6: fill 0.004s, run 0.327s, 0 errors.
+Average run time 0.326s
+--- Descending test
+ 1/ 6: fill 0.004s, run 0.334s, 0 errors.
+ 2/ 6: fill 0.004s, run 0.334s, 0 errors.
+ 3/ 6: fill 0.004s, run 0.334s, 0 errors.
+ 4/ 6: fill 0.004s, run 0.334s, 0 errors.
+ 5/ 6: fill 0.004s, run 0.333s, 0 errors.
+ 6/ 6: fill 0.004s, run 0.339s, 0 errors.
+Average run time 0.335s
+--- Shuffle test
+ 1/ 6: fill 0.322s, run 0.967s, 0 errors.
+ 2/ 6: fill 0.324s, run 0.965s, 0 errors.
+ 3/ 6: fill 0.325s, run 0.967s, 0 errors.
+ 4/ 6: fill 0.318s, run 0.966s, 0 errors.
+ 5/ 6: fill 0.323s, run 0.965s, 0 errors.
+ 6/ 6: fill 0.324s, run 0.966s, 0 errors.
+Average run time 0.966s
++ ./test 20000000 6 6 6
+20,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.027s, run 2.229s, 0 errors.
+ 2/ 6: fill 0.007s, run 2.234s, 0 errors.
+ 3/ 6: fill 0.008s, run 2.231s, 0 errors.
+ 4/ 6: fill 0.007s, run 2.232s, 0 errors.
+ 5/ 6: fill 0.007s, run 2.233s, 0 errors.
+ 6/ 6: fill 0.007s, run 2.233s, 0 errors.
+Average run time 2.232s
+--- Descending test
+ 1/ 6: fill 0.007s, run 2.241s, 0 errors.
+ 2/ 6: fill 0.008s, run 2.240s, 0 errors.
+ 3/ 6: fill 0.008s, run 2.240s, 0 errors.
+ 4/ 6: fill 0.008s, run 2.244s, 0 errors.
+ 5/ 6: fill 0.008s, run 2.239s, 0 errors.
+ 6/ 6: fill 0.008s, run 2.243s, 0 errors.
+Average run time 2.241s
+--- Shuffle test
+ 1/ 6: fill 0.738s, run 5.067s, 0 errors.
+ 2/ 6: fill 0.744s, run 5.071s, 0 errors.
+ 3/ 6: fill 0.738s, run 5.072s, 0 errors.
+ 4/ 6: fill 0.740s, run 5.073s, 0 errors.
+ 5/ 6: fill 0.740s, run 5.077s, 0 errors.
+ 6/ 6: fill 0.740s, run 5.070s, 0 errors.
+Average run time 5.072s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.007s, run 0.676s, 0 errors.
+ 2/ 6: fill 0.007s, run 0.677s, 0 errors.
+ 3/ 6: fill 0.007s, run 0.676s, 0 errors.
+ 4/ 6: fill 0.007s, run 0.676s, 0 errors.
+ 5/ 6: fill 0.007s, run 0.677s, 0 errors.
+ 6/ 6: fill 0.007s, run 0.677s, 0 errors.
+Average run time 0.676s
+--- Descending test
+ 1/ 6: fill 0.007s, run 0.693s, 0 errors.
+ 2/ 6: fill 0.007s, run 0.692s, 0 errors.
+ 3/ 6: fill 0.007s, run 0.692s, 0 errors.
+ 4/ 6: fill 0.007s, run 0.694s, 0 errors.
+ 5/ 6: fill 0.008s, run 0.692s, 0 errors.
+ 6/ 6: fill 0.007s, run 0.692s, 0 errors.
+Average run time 0.692s
+--- Shuffle test
+ 1/ 6: fill 0.743s, run 2.041s, 0 errors.
+ 2/ 6: fill 0.741s, run 2.043s, 0 errors.
+ 3/ 6: fill 0.739s, run 2.045s, 0 errors.
+ 4/ 6: fill 0.739s, run 2.046s, 0 errors.
+ 5/ 6: fill 0.741s, run 2.044s, 0 errors.
+ 6/ 6: fill 0.740s, run 2.044s, 0 errors.
+Average run time 2.044s
++ ./test 30000000 6 6 6
+30,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.032s, run 3.410s, 0 errors.
+ 2/ 6: fill 0.012s, run 3.413s, 0 errors.
+ 3/ 6: fill 0.012s, run 3.407s, 0 errors.
+ 4/ 6: fill 0.011s, run 3.410s, 0 errors.
+ 5/ 6: fill 0.012s, run 3.410s, 0 errors.
+ 6/ 6: fill 0.011s, run 3.413s, 0 errors.
+Average run time 3.410s
+--- Descending test
+ 1/ 6: fill 0.012s, run 3.462s, 0 errors.
+ 2/ 6: fill 0.012s, run 3.460s, 0 errors.
+ 3/ 6: fill 0.012s, run 3.460s, 0 errors.
+ 4/ 6: fill 0.012s, run 3.461s, 0 errors.
+ 5/ 6: fill 0.012s, run 3.462s, 0 errors.
+ 6/ 6: fill 0.012s, run 3.467s, 0 errors.
+Average run time 3.462s
+--- Shuffle test
+ 1/ 6: fill 1.180s, run 8.110s, 0 errors.
+ 2/ 6: fill 1.178s, run 8.115s, 0 errors.
+ 3/ 6: fill 1.179s, run 8.107s, 0 errors.
+ 4/ 6: fill 1.184s, run 8.123s, 0 errors.
+ 5/ 6: fill 1.180s, run 8.110s, 0 errors.
+ 6/ 6: fill 1.214s, run 8.127s, 0 errors.
+Average run time 8.115s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.013s, run 1.036s, 0 errors.
+ 2/ 6: fill 0.011s, run 1.034s, 0 errors.
+ 3/ 6: fill 0.011s, run 1.032s, 0 errors.
+ 4/ 6: fill 0.011s, run 1.039s, 0 errors.
+ 5/ 6: fill 0.011s, run 1.034s, 0 errors.
+ 6/ 6: fill 0.011s, run 1.034s, 0 errors.
+Average run time 1.035s
+--- Descending test
+ 1/ 6: fill 0.011s, run 1.055s, 0 errors.
+ 2/ 6: fill 0.011s, run 1.057s, 0 errors.
+ 3/ 6: fill 0.011s, run 1.056s, 0 errors.
+ 4/ 6: fill 0.011s, run 1.056s, 0 errors.
+ 5/ 6: fill 0.011s, run 1.057s, 0 errors.
+ 6/ 6: fill 0.011s, run 1.056s, 0 errors.
+Average run time 1.056s
+--- Shuffle test
+ 1/ 6: fill 1.181s, run 3.126s, 0 errors.
+ 2/ 6: fill 1.180s, run 3.129s, 0 errors.
+ 3/ 6: fill 1.180s, run 3.126s, 0 errors.
+ 4/ 6: fill 1.182s, run 3.124s, 0 errors.
+ 5/ 6: fill 1.181s, run 3.127s, 0 errors.
+ 6/ 6: fill 1.181s, run 3.126s, 0 errors.
+Average run time 3.126s
++ ./test 40000000 6 6 6
+40,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.049s, run 4.650s, 0 errors.
+ 2/ 6: fill 0.016s, run 4.649s, 0 errors.
+ 3/ 6: fill 0.015s, run 4.648s, 0 errors.
+ 4/ 6: fill 0.015s, run 4.640s, 0 errors.
+ 5/ 6: fill 0.016s, run 4.649s, 0 errors.
+ 6/ 6: fill 0.016s, run 4.646s, 0 errors.
+Average run time 4.647s
+--- Descending test
+ 1/ 6: fill 0.016s, run 4.713s, 0 errors.
+ 2/ 6: fill 0.016s, run 4.701s, 0 errors.
+ 3/ 6: fill 0.016s, run 4.706s, 0 errors.
+ 4/ 6: fill 0.015s, run 4.704s, 0 errors.
+ 5/ 6: fill 0.015s, run 4.710s, 0 errors.
+ 6/ 6: fill 0.016s, run 4.700s, 0 errors.
+Average run time 4.706s
+--- Shuffle test
+ 1/ 6: fill 1.623s, run 11.235s, 0 errors.
+ 2/ 6: fill 1.622s, run 11.237s, 0 errors.
+ 3/ 6: fill 1.618s, run 11.243s, 0 errors.
+ 4/ 6: fill 1.618s, run 11.237s, 0 errors.
+ 5/ 6: fill 1.795s, run 11.243s, 0 errors.
+ 6/ 6: fill 1.620s, run 11.246s, 0 errors.
+Average run time 11.240s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.016s, run 1.402s, 0 errors.
+ 2/ 6: fill 0.015s, run 1.403s, 0 errors.
+ 3/ 6: fill 0.016s, run 1.403s, 0 errors.
+ 4/ 6: fill 0.016s, run 1.404s, 0 errors.
+ 5/ 6: fill 0.015s, run 1.403s, 0 errors.
+ 6/ 6: fill 0.016s, run 1.405s, 0 errors.
+Average run time 1.403s
+--- Descending test
+ 1/ 6: fill 0.015s, run 1.435s, 0 errors.
+ 2/ 6: fill 0.016s, run 1.436s, 0 errors.
+ 3/ 6: fill 0.015s, run 1.435s, 0 errors.
+ 4/ 6: fill 0.016s, run 1.435s, 0 errors.
+ 5/ 6: fill 0.016s, run 1.435s, 0 errors.
+ 6/ 6: fill 0.015s, run 1.434s, 0 errors.
+Average run time 1.435s
+--- Shuffle test
+ 1/ 6: fill 1.623s, run 4.250s, 0 errors.
+ 2/ 6: fill 1.619s, run 4.250s, 0 errors.
+ 3/ 6: fill 1.620s, run 4.261s, 0 errors.
+ 4/ 6: fill 1.620s, run 4.247s, 0 errors.
+ 5/ 6: fill 1.621s, run 4.247s, 0 errors.
+ 6/ 6: fill 1.623s, run 4.252s, 0 errors.
+Average run time 4.251s
++ ./test 50000000 6 6 6
+50,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.061s, run 5.917s, 0 errors.
+ 2/ 6: fill 0.019s, run 5.988s, 0 errors.
+ 3/ 6: fill 0.019s, run 5.948s, 0 errors.
+ 4/ 6: fill 0.019s, run 6.096s, 0 errors.
+ 5/ 6: fill 0.019s, run 6.288s, 0 errors.
+ 6/ 6: fill 0.019s, run 5.914s, 0 errors.
+Average run time 6.025s
+--- Descending test
+ 1/ 6: fill 0.019s, run 6.113s, 0 errors.
+ 2/ 6: fill 0.019s, run 6.049s, 0 errors.
+ 3/ 6: fill 0.019s, run 6.049s, 0 errors.
+ 4/ 6: fill 0.019s, run 6.062s, 0 errors.
+ 5/ 6: fill 0.019s, run 6.121s, 0 errors.
+ 6/ 6: fill 0.019s, run 6.049s, 0 errors.
+Average run time 6.074s
+--- Shuffle test
+ 1/ 6: fill 2.073s, run 14.553s, 0 errors.
+ 2/ 6: fill 2.083s, run 14.556s, 0 errors.
+ 3/ 6: fill 2.075s, run 14.536s, 0 errors.
+ 4/ 6: fill 2.075s, run 14.532s, 0 errors.
+ 5/ 6: fill 2.075s, run 14.548s, 0 errors.
+ 6/ 6: fill 2.080s, run 14.554s, 0 errors.
+Average run time 14.546s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.019s, run 1.773s, 0 errors.
+ 2/ 6: fill 0.019s, run 1.776s, 0 errors.
+ 3/ 6: fill 0.019s, run 1.774s, 0 errors.
+ 4/ 6: fill 0.019s, run 1.776s, 0 errors.
+ 5/ 6: fill 0.019s, run 1.774s, 0 errors.
+ 6/ 6: fill 0.019s, run 1.774s, 0 errors.
+Average run time 1.774s
+--- Descending test
+ 1/ 6: fill 0.019s, run 1.818s, 0 errors.
+ 2/ 6: fill 0.019s, run 1.816s, 0 errors.
+ 3/ 6: fill 0.019s, run 1.814s, 0 errors.
+ 4/ 6: fill 0.019s, run 1.815s, 0 errors.
+ 5/ 6: fill 0.019s, run 1.814s, 0 errors.
+ 6/ 6: fill 0.019s, run 1.814s, 0 errors.
+Average run time 1.815s
+--- Shuffle test
+ 1/ 6: fill 2.075s, run 5.348s, 0 errors.
+ 2/ 6: fill 2.072s, run 5.345s, 0 errors.
+ 3/ 6: fill 2.107s, run 5.358s, 0 errors.
+ 4/ 6: fill 2.224s, run 5.352s, 0 errors.
+ 5/ 6: fill 2.077s, run 5.352s, 0 errors.
+ 6/ 6: fill 2.076s, run 5.346s, 0 errors.
+Average run time 5.350s
++ ./test 60000000 6 6 6
+60,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.069s, run 7.183s, 0 errors.
+ 2/ 6: fill 0.023s, run 7.178s, 0 errors.
+ 3/ 6: fill 0.023s, run 7.182s, 0 errors.
+ 4/ 6: fill 0.023s, run 7.184s, 0 errors.
+ 5/ 6: fill 0.024s, run 7.967s, 0 errors.
+ 6/ 6: fill 0.023s, run 8.235s, 0 errors.
+Average run time 7.488s
+--- Descending test
+ 1/ 6: fill 0.023s, run 7.753s, 0 errors.
+ 2/ 6: fill 0.023s, run 8.180s, 0 errors.
+ 3/ 6: fill 0.023s, run 7.844s, 0 errors.
+ 4/ 6: fill 0.023s, run 7.619s, 0 errors.
+ 5/ 6: fill 0.023s, run 7.648s, 0 errors.
+ 6/ 6: fill 0.023s, run 7.892s, 0 errors.
+Average run time 7.823s
+--- Shuffle test
+ 1/ 6: fill 2.722s, run 17.926s, 0 errors.
+ 2/ 6: fill 2.766s, run 17.878s, 0 errors.
+ 3/ 6: fill 2.530s, run 17.868s, 0 errors.
+ 4/ 6: fill 2.528s, run 17.882s, 0 errors.
+ 5/ 6: fill 2.534s, run 17.863s, 0 errors.
+ 6/ 6: fill 2.544s, run 17.865s, 0 errors.
+Average run time 17.880s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.023s, run 2.152s, 0 errors.
+ 2/ 6: fill 0.023s, run 2.146s, 0 errors.
+ 3/ 6: fill 0.023s, run 2.150s, 0 errors.
+ 4/ 6: fill 0.023s, run 2.469s, 0 errors.
+ 5/ 6: fill 0.023s, run 2.155s, 0 errors.
+ 6/ 6: fill 0.023s, run 2.148s, 0 errors.
+Average run time 2.203s
+--- Descending test
+ 1/ 6: fill 0.023s, run 2.203s, 0 errors.
+ 2/ 6: fill 0.023s, run 2.195s, 0 errors.
+ 3/ 6: fill 0.023s, run 2.197s, 0 errors.
+ 4/ 6: fill 0.023s, run 2.198s, 0 errors.
+ 5/ 6: fill 0.023s, run 2.345s, 0 errors.
+ 6/ 6: fill 0.023s, run 2.194s, 0 errors.
+Average run time 2.222s
+--- Shuffle test
+ 1/ 6: fill 2.811s, run 6.529s, 0 errors.
+ 2/ 6: fill 2.528s, run 6.621s, 0 errors.
+ 3/ 6: fill 2.527s, run 6.507s, 0 errors.
+ 4/ 6: fill 2.532s, run 6.506s, 0 errors.
+ 5/ 6: fill 2.547s, run 6.502s, 0 errors.
+ 6/ 6: fill 2.534s, run 6.512s, 0 errors.
+Average run time 6.530s
++ ./test 70000000 6 6 6
+70,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.081s, run 9.611s, 0 errors.
+ 2/ 6: fill 0.028s, run 10.327s, 0 errors.
+ 3/ 6: fill 0.028s, run 10.046s, 0 errors.
+ 4/ 6: fill 0.028s, run 8.466s, 0 errors.
+ 5/ 6: fill 0.028s, run 8.568s, 0 errors.
+ 6/ 6: fill 0.028s, run 8.462s, 0 errors.
+Average run time 9.247s
+--- Descending test
+ 1/ 6: fill 0.028s, run 8.598s, 0 errors.
+ 2/ 6: fill 0.028s, run 8.731s, 0 errors.
+ 3/ 6: fill 0.028s, run 8.715s, 0 errors.
+ 4/ 6: fill 0.028s, run 8.693s, 0 errors.
+ 5/ 6: fill 0.028s, run 8.603s, 0 errors.
+ 6/ 6: fill 0.028s, run 8.603s, 0 errors.
+Average run time 8.657s
+--- Shuffle test
+ 1/ 6: fill 2.988s, run 21.258s, 0 errors.
+ 2/ 6: fill 2.982s, run 21.258s, 0 errors.
+ 3/ 6: fill 2.985s, run 21.264s, 0 errors.
+ 4/ 6: fill 2.984s, run 21.384s, 0 errors.
+ 5/ 6: fill 2.983s, run 21.277s, 0 errors.
+ 6/ 6: fill 2.986s, run 21.270s, 0 errors.
+Average run time 21.285s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.028s, run 2.520s, 0 errors.
+ 2/ 6: fill 0.028s, run 2.520s, 0 errors.
+ 3/ 6: fill 0.028s, run 2.519s, 0 errors.
+ 4/ 6: fill 0.028s, run 2.523s, 0 errors.
+ 5/ 6: fill 0.027s, run 2.516s, 0 errors.
+ 6/ 6: fill 0.028s, run 2.522s, 0 errors.
+Average run time 2.520s
+--- Descending test
+ 1/ 6: fill 0.028s, run 2.577s, 0 errors.
+ 2/ 6: fill 0.028s, run 2.578s, 0 errors.
+ 3/ 6: fill 0.028s, run 2.581s, 0 errors.
+ 4/ 6: fill 0.028s, run 2.576s, 0 errors.
+ 5/ 6: fill 0.027s, run 2.579s, 0 errors.
+ 6/ 6: fill 0.028s, run 2.600s, 0 errors.
+Average run time 2.582s
+--- Shuffle test
+ 1/ 6: fill 2.992s, run 7.673s, 0 errors.
+ 2/ 6: fill 2.985s, run 7.671s, 0 errors.
+ 3/ 6: fill 2.973s, run 7.669s, 0 errors.
+ 4/ 6: fill 2.971s, run 7.674s, 0 errors.
+ 5/ 6: fill 2.973s, run 7.726s, 0 errors.
+ 6/ 6: fill 2.974s, run 7.672s, 0 errors.
+Average run time 7.681s
++ ./test 80000000 6 6 6
+80,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.090s, run 9.953s, 0 errors.
+ 2/ 6: fill 0.031s, run 9.788s, 0 errors.
+ 3/ 6: fill 0.032s, run 9.778s, 0 errors.
+ 4/ 6: fill 0.031s, run 9.826s, 0 errors.
+ 5/ 6: fill 0.032s, run 9.911s, 0 errors.
+ 6/ 6: fill 0.032s, run 9.782s, 0 errors.
+Average run time 9.840s
+--- Descending test
+ 1/ 6: fill 0.032s, run 9.878s, 0 errors.
+ 2/ 6: fill 0.032s, run 10.005s, 0 errors.
+ 3/ 6: fill 0.032s, run 9.870s, 0 errors.
+ 4/ 6: fill 0.032s, run 9.936s, 0 errors.
+ 5/ 6: fill 0.032s, run 9.873s, 0 errors.
+ 6/ 6: fill 0.032s, run 10.003s, 0 errors.
+Average run time 9.927s
+--- Shuffle test
+ 1/ 6: fill 3.467s, run 24.786s, 0 errors.
+ 2/ 6: fill 3.428s, run 24.907s, 0 errors.
+ 3/ 6: fill 3.431s, run 24.800s, 0 errors.
+ 4/ 6: fill 3.430s, run 24.822s, 0 errors.
+ 5/ 6: fill 3.435s, run 24.827s, 0 errors.
+ 6/ 6: fill 3.433s, run 24.846s, 0 errors.
+Average run time 24.831s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.032s, run 2.914s, 0 errors.
+ 2/ 6: fill 0.031s, run 2.917s, 0 errors.
+ 3/ 6: fill 0.032s, run 2.916s, 0 errors.
+ 4/ 6: fill 0.032s, run 2.915s, 0 errors.
+ 5/ 6: fill 0.032s, run 2.916s, 0 errors.
+ 6/ 6: fill 0.032s, run 2.916s, 0 errors.
+Average run time 2.916s
+--- Descending test
+ 1/ 6: fill 0.032s, run 2.976s, 0 errors.
+ 2/ 6: fill 0.032s, run 2.977s, 0 errors.
+ 3/ 6: fill 0.032s, run 2.974s, 0 errors.
+ 4/ 6: fill 0.031s, run 2.976s, 0 errors.
+ 5/ 6: fill 0.031s, run 2.982s, 0 errors.
+ 6/ 6: fill 0.031s, run 2.973s, 0 errors.
+Average run time 2.976s
+--- Shuffle test
+ 1/ 6: fill 3.431s, run 8.834s, 0 errors.
+ 2/ 6: fill 3.438s, run 8.828s, 0 errors.
+ 3/ 6: fill 3.431s, run 8.834s, 0 errors.
+ 4/ 6: fill 3.430s, run 8.830s, 0 errors.
+ 5/ 6: fill 3.432s, run 8.827s, 0 errors.
+ 6/ 6: fill 3.433s, run 8.823s, 0 errors.
+Average run time 8.829s
++ ./test 90000000 6 6 6
+90,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.113s, run 11.330s, 0 errors.
+ 2/ 6: fill 0.035s, run 11.220s, 0 errors.
+ 3/ 6: fill 0.035s, run 11.343s, 0 errors.
+ 4/ 6: fill 0.035s, run 11.307s, 0 errors.
+ 5/ 6: fill 0.035s, run 11.379s, 0 errors.
+ 6/ 6: fill 0.035s, run 11.344s, 0 errors.
+Average run time 11.320s
+--- Descending test
+ 1/ 6: fill 0.035s, run 11.336s, 0 errors.
+ 2/ 6: fill 0.035s, run 11.253s, 0 errors.
+ 3/ 6: fill 0.035s, run 11.261s, 0 errors.
+ 4/ 6: fill 0.035s, run 11.370s, 0 errors.
+ 5/ 6: fill 0.035s, run 11.252s, 0 errors.
+ 6/ 6: fill 0.036s, run 11.217s, 0 errors.
+Average run time 11.281s
+--- Shuffle test
+ 1/ 6: fill 3.897s, run 28.346s, 0 errors.
+ 2/ 6: fill 3.901s, run 28.326s, 0 errors.
+ 3/ 6: fill 3.898s, run 28.321s, 0 errors.
+ 4/ 6: fill 4.042s, run 28.316s, 0 errors.
+ 5/ 6: fill 3.904s, run 28.321s, 0 errors.
+ 6/ 6: fill 3.898s, run 28.333s, 0 errors.
+Average run time 28.327s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.035s, run 3.319s, 0 errors.
+ 2/ 6: fill 0.035s, run 3.313s, 0 errors.
+ 3/ 6: fill 0.035s, run 3.315s, 0 errors.
+ 4/ 6: fill 0.036s, run 3.312s, 0 errors.
+ 5/ 6: fill 0.035s, run 3.313s, 0 errors.
+ 6/ 6: fill 0.035s, run 3.319s, 0 errors.
+Average run time 3.315s
+--- Descending test
+ 1/ 6: fill 0.035s, run 3.395s, 0 errors.
+ 2/ 6: fill 0.035s, run 3.387s, 0 errors.
+ 3/ 6: fill 0.035s, run 3.389s, 0 errors.
+ 4/ 6: fill 0.035s, run 3.388s, 0 errors.
+ 5/ 6: fill 0.035s, run 3.390s, 0 errors.
+ 6/ 6: fill 0.035s, run 3.387s, 0 errors.
+Average run time 3.389s
+--- Shuffle test
+ 1/ 6: fill 3.900s, run 10.025s, 0 errors.
+ 2/ 6: fill 3.903s, run 10.032s, 0 errors.
+ 3/ 6: fill 3.908s, run 10.023s, 0 errors.
+ 4/ 6: fill 3.895s, run 10.014s, 0 errors.
+ 5/ 6: fill 3.894s, run 10.029s, 0 errors.
+ 6/ 6: fill 3.898s, run 10.038s, 0 errors.
+Average run time 10.027s
++ ./test 100000000 6 6 6
+100,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.111s, run 12.488s, 0 errors.
+ 2/ 6: fill 0.039s, run 12.436s, 0 errors.
+ 3/ 6: fill 0.039s, run 12.436s, 0 errors.
+ 4/ 6: fill 0.039s, run 12.500s, 0 errors.
+ 5/ 6: fill 0.039s, run 12.447s, 0 errors.
+ 6/ 6: fill 0.040s, run 12.498s, 0 errors.
+Average run time 12.468s
+--- Descending test
+ 1/ 6: fill 0.039s, run 12.740s, 0 errors.
+ 2/ 6: fill 0.039s, run 12.641s, 0 errors.
+ 3/ 6: fill 0.039s, run 12.686s, 0 errors.
+ 4/ 6: fill 0.039s, run 12.652s, 0 errors.
+ 5/ 6: fill 0.039s, run 12.629s, 0 errors.
+ 6/ 6: fill 0.039s, run 12.676s, 0 errors.
+Average run time 12.670s
+--- Shuffle test
+ 1/ 6: fill 4.383s, run 32.064s, 0 errors.
+ 2/ 6: fill 4.387s, run 32.066s, 0 errors.
+ 3/ 6: fill 4.387s, run 32.068s, 0 errors.
+ 4/ 6: fill 4.403s, run 32.129s, 0 errors.
+ 5/ 6: fill 4.387s, run 32.112s, 0 errors.
+ 6/ 6: fill 4.500s, run 32.113s, 0 errors.
+Average run time 32.092s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.039s, run 3.690s, 0 errors.
+ 2/ 6: fill 0.039s, run 3.693s, 0 errors.
+ 3/ 6: fill 0.040s, run 3.688s, 0 errors.
+ 4/ 6: fill 0.039s, run 3.753s, 0 errors.
+ 5/ 6: fill 0.039s, run 3.689s, 0 errors.
+ 6/ 6: fill 0.039s, run 3.690s, 0 errors.
+Average run time 3.701s
+--- Descending test
+ 1/ 6: fill 0.039s, run 3.763s, 0 errors.
+ 2/ 6: fill 0.039s, run 3.764s, 0 errors.
+ 3/ 6: fill 0.039s, run 3.774s, 0 errors.
+ 4/ 6: fill 0.039s, run 3.771s, 0 errors.
+ 5/ 6: fill 0.039s, run 3.769s, 0 errors.
+ 6/ 6: fill 0.039s, run 3.793s, 0 errors.
+Average run time 3.772s
+--- Shuffle test
+ 1/ 6: fill 4.385s, run 11.183s, 0 errors.
+ 2/ 6: fill 4.387s, run 11.155s, 0 errors.
+ 3/ 6: fill 4.390s, run 11.116s, 0 errors.
+ 4/ 6: fill 4.420s, run 11.109s, 0 errors.
+ 5/ 6: fill 4.385s, run 11.109s, 0 errors.
+ 6/ 6: fill 4.385s, run 11.107s, 0 errors.
+Average run time 11.130s
++ ./test 200000000 6 6 6
+200,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.215s, run 23.569s, 0 errors.
+ 2/ 6: fill 0.078s, run 23.471s, 0 errors.
+ 3/ 6: fill 0.078s, run 23.460s, 0 errors.
+ 4/ 6: fill 0.078s, run 23.458s, 0 errors.
+ 5/ 6: fill 0.078s, run 23.435s, 0 errors.
+ 6/ 6: fill 0.078s, run 23.441s, 0 errors.
+Average run time 23.472s
+--- Descending test
+ 1/ 6: fill 0.078s, run 26.314s, 0 errors.
+ 2/ 6: fill 0.078s, run 26.295s, 0 errors.
+ 3/ 6: fill 0.078s, run 26.274s, 0 errors.
+ 4/ 6: fill 0.078s, run 26.274s, 0 errors.
+ 5/ 6: fill 0.078s, run 26.296s, 0 errors.
+ 6/ 6: fill 0.078s, run 26.308s, 0 errors.
+Average run time 26.293s
+--- Shuffle test
+ 1/ 6: fill 9.049s, run 70.392s, 0 errors.
+ 2/ 6: fill 9.038s, run 70.563s, 0 errors.
+ 3/ 6: fill 9.042s, run 70.392s, 0 errors.
+ 4/ 6: fill 9.042s, run 70.425s, 0 errors.
+ 5/ 6: fill 9.048s, run 70.478s, 0 errors.
+ 6/ 6: fill 9.044s, run 70.533s, 0 errors.
+Average run time 70.464s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.078s, run 7.622s, 0 errors.
+ 2/ 6: fill 0.077s, run 7.618s, 0 errors.
+ 3/ 6: fill 0.078s, run 7.645s, 0 errors.
+ 4/ 6: fill 0.078s, run 7.634s, 0 errors.
+ 5/ 6: fill 0.078s, run 7.677s, 0 errors.
+ 6/ 6: fill 0.078s, run 7.629s, 0 errors.
+Average run time 7.638s
+--- Descending test
+ 1/ 6: fill 0.079s, run 7.842s, 0 errors.
+ 2/ 6: fill 0.078s, run 7.786s, 0 errors.
+ 3/ 6: fill 0.078s, run 7.785s, 0 errors.
+ 4/ 6: fill 0.078s, run 7.778s, 0 errors.
+ 5/ 6: fill 0.078s, run 7.778s, 0 errors.
+ 6/ 6: fill 0.078s, run 7.781s, 0 errors.
+Average run time 7.792s
+--- Shuffle test
+ 1/ 6: fill 9.043s, run 23.067s, 0 errors.
+ 2/ 6: fill 9.045s, run 23.051s, 0 errors.
+ 3/ 6: fill 9.046s, run 23.056s, 0 errors.
+ 4/ 6: fill 9.114s, run 23.113s, 0 errors.
+ 5/ 6: fill 9.036s, run 23.097s, 0 errors.
+ 6/ 6: fill 9.068s, run 23.082s, 0 errors.
+Average run time 23.078s
++ ./test 300000000 6 6 6
+300,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.316s, run 35.047s, 0 errors.
+ 2/ 6: fill 0.116s, run 34.969s, 0 errors.
+ 3/ 6: fill 0.116s, run 35.450s, 0 errors.
+ 4/ 6: fill 0.117s, run 34.926s, 0 errors.
+ 5/ 6: fill 0.116s, run 34.922s, 0 errors.
+ 6/ 6: fill 0.116s, run 34.907s, 0 errors.
+Average run time 35.037s
+--- Descending test
+ 1/ 6: fill 0.116s, run 38.384s, 0 errors.
+ 2/ 6: fill 0.116s, run 38.406s, 0 errors.
+ 3/ 6: fill 0.117s, run 38.358s, 0 errors.
+ 4/ 6: fill 0.116s, run 38.458s, 0 errors.
+ 5/ 6: fill 0.116s, run 38.400s, 0 errors.
+ 6/ 6: fill 0.116s, run 38.424s, 0 errors.
+Average run time 38.405s
+--- Shuffle test
+ 1/ 6: fill 13.921s, run 112.665s, 0 errors.
+ 2/ 6: fill 13.918s, run 112.764s, 0 errors.
+ 3/ 6: fill 13.905s, run 112.648s, 0 errors.
+ 4/ 6: fill 13.949s, run 112.835s, 0 errors.
+ 5/ 6: fill 13.913s, run 112.682s, 0 errors.
+ 6/ 6: fill 13.903s, run 113.206s, 0 errors.
+Average run time 112.800s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.116s, run 11.616s, 0 errors.
+ 2/ 6: fill 0.116s, run 11.611s, 0 errors.
+ 3/ 6: fill 0.126s, run 11.620s, 0 errors.
+ 4/ 6: fill 0.116s, run 11.667s, 0 errors.
+ 5/ 6: fill 0.117s, run 11.612s, 0 errors.
+ 6/ 6: fill 0.115s, run 11.616s, 0 errors.
+Average run time 11.624s
+--- Descending test
+ 1/ 6: fill 0.115s, run 11.857s, 0 errors.
+ 2/ 6: fill 0.116s, run 11.967s, 0 errors.
+ 3/ 6: fill 0.116s, run 11.876s, 0 errors.
+ 4/ 6: fill 0.116s, run 11.869s, 0 errors.
+ 5/ 6: fill 0.116s, run 11.880s, 0 errors.
+ 6/ 6: fill 0.116s, run 12.166s, 0 errors.
+Average run time 11.936s
+--- Shuffle test
+ 1/ 6: fill 13.906s, run 35.374s, 0 errors.
+ 2/ 6: fill 13.938s, run 35.480s, 0 errors.
+ 3/ 6: fill 13.923s, run 35.607s, 0 errors.
+ 4/ 6: fill 13.901s, run 35.348s, 0 errors.
+ 5/ 6: fill 13.905s, run 35.415s, 0 errors.
+ 6/ 6: fill 13.996s, run 35.558s, 0 errors.
+Average run time 35.464s
++ ./test 400000000 6 6 6
+400,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.420s, run 50.028s, 0 errors.
+ 2/ 6: fill 0.156s, run 50.537s, 0 errors.
+ 3/ 6: fill 0.155s, run 50.001s, 0 errors.
+ 4/ 6: fill 0.155s, run 50.877s, 0 errors.
+ 5/ 6: fill 0.154s, run 50.036s, 0 errors.
+ 6/ 6: fill 0.157s, run 49.952s, 0 errors.
+Average run time 50.238s
+--- Descending test
+ 1/ 6: fill 0.154s, run 52.698s, 0 errors.
+ 2/ 6: fill 0.154s, run 52.707s, 0 errors.
+ 3/ 6: fill 0.154s, run 52.749s, 0 errors.
+ 4/ 6: fill 0.155s, run 52.768s, 0 errors.
+ 5/ 6: fill 0.154s, run 52.695s, 0 errors.
+ 6/ 6: fill 0.157s, run 52.787s, 0 errors.
+Average run time 52.734s
+--- Shuffle test
+ 1/ 6: fill 18.647s, run 159.176s, 0 errors.
+ 2/ 6: fill 18.697s, run 159.375s, 0 errors.
+ 3/ 6: fill 18.642s, run 158.898s, 0 errors.
+ 4/ 6: fill 18.661s, run 159.277s, 0 errors.
+ 5/ 6: fill 18.661s, run 159.044s, 0 errors.
+ 6/ 6: fill 18.780s, run 159.005s, 0 errors.
+Average run time 159.129s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.154s, run 15.832s, 0 errors.
+ 2/ 6: fill 0.154s, run 15.784s, 0 errors.
+ 3/ 6: fill 0.159s, run 15.864s, 0 errors.
+ 4/ 6: fill 0.154s, run 15.833s, 0 errors.
+ 5/ 6: fill 0.154s, run 16.034s, 0 errors.
+ 6/ 6: fill 0.155s, run 15.838s, 0 errors.
+Average run time 15.864s
+--- Descending test
+ 1/ 6: fill 0.154s, run 16.145s, 0 errors.
+ 2/ 6: fill 0.154s, run 16.131s, 0 errors.
+ 3/ 6: fill 0.154s, run 16.142s, 0 errors.
+ 4/ 6: fill 0.156s, run 16.163s, 0 errors.
+ 5/ 6: fill 0.154s, run 16.118s, 0 errors.
+ 6/ 6: fill 0.154s, run 16.170s, 0 errors.
+Average run time 16.145s
+--- Shuffle test
+ 1/ 6: fill 18.566s, run 47.826s, 0 errors.
+ 2/ 6: fill 18.543s, run 47.768s, 0 errors.
+ 3/ 6: fill 18.525s, run 47.849s, 0 errors.
+ 4/ 6: fill 18.557s, run 47.866s, 0 errors.
+ 5/ 6: fill 18.641s, run 47.750s, 0 errors.
+ 6/ 6: fill 18.690s, run 48.055s, 0 errors.
+Average run time 47.852s
++ ./test 500000000 6 6 6
+500,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.521s, run 65.049s, 0 errors.
+ 2/ 6: fill 0.193s, run 64.949s, 0 errors.
+ 3/ 6: fill 0.193s, run 64.968s, 0 errors.
+ 4/ 6: fill 0.194s, run 64.907s, 0 errors.
+ 5/ 6: fill 0.193s, run 64.906s, 0 errors.
+ 6/ 6: fill 0.193s, run 64.940s, 0 errors.
+Average run time 64.953s
+--- Descending test
+ 1/ 6: fill 0.193s, run 65.806s, 0 errors.
+ 2/ 6: fill 0.192s, run 65.802s, 0 errors.
+ 3/ 6: fill 0.192s, run 65.753s, 0 errors.
+ 4/ 6: fill 0.193s, run 65.961s, 0 errors.
+ 5/ 6: fill 0.192s, run 65.765s, 0 errors.
+ 6/ 6: fill 0.198s, run 65.769s, 0 errors.
+Average run time 65.809s
+--- Shuffle test
+ 1/ 6: fill 24.228s, run 206.966s, 0 errors.
+ 2/ 6: fill 23.459s, run 206.645s, 0 errors.
+ 3/ 6: fill 23.604s, run 206.559s, 0 errors.
+ 4/ 6: fill 23.476s, run 206.582s, 0 errors.
+ 5/ 6: fill 23.463s, run 206.689s, 0 errors.
+ 6/ 6: fill 23.554s, run 206.781s, 0 errors.
+Average run time 206.703s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.192s, run 19.815s, 0 errors.
+ 2/ 6: fill 0.193s, run 19.791s, 0 errors.
+ 3/ 6: fill 0.193s, run 19.793s, 0 errors.
+ 4/ 6: fill 0.194s, run 19.813s, 0 errors.
+ 5/ 6: fill 0.193s, run 19.854s, 0 errors.
+ 6/ 6: fill 0.193s, run 19.817s, 0 errors.
+Average run time 19.814s
+--- Descending test
+ 1/ 6: fill 0.194s, run 20.228s, 0 errors.
+ 2/ 6: fill 0.192s, run 20.233s, 0 errors.
+ 3/ 6: fill 0.194s, run 20.308s, 0 errors.
+ 4/ 6: fill 0.192s, run 20.269s, 0 errors.
+ 5/ 6: fill 0.194s, run 20.231s, 0 errors.
+ 6/ 6: fill 0.192s, run 20.242s, 0 errors.
+Average run time 20.252s
+--- Shuffle test
+ 1/ 6: fill 23.611s, run 60.591s, 0 errors.
+ 2/ 6: fill 24.180s, run 60.589s, 0 errors.
+ 3/ 6: fill 23.591s, run 60.664s, 0 errors.
+ 4/ 6: fill 23.502s, run 60.531s, 0 errors.
+ 5/ 6: fill 24.366s, run 60.818s, 0 errors.
+ 6/ 6: fill 23.496s, run 60.603s, 0 errors.
+Average run time 60.633s
++ ./test 600000000 6 6 6
+600,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.621s, run 80.041s, 0 errors.
+ 2/ 6: fill 0.231s, run 80.631s, 0 errors.
+ 3/ 6: fill 0.232s, run 79.943s, 0 errors.
+ 4/ 6: fill 0.232s, run 80.206s, 0 errors.
+ 5/ 6: fill 0.233s, run 80.132s, 0 errors.
+ 6/ 6: fill 0.231s, run 80.175s, 0 errors.
+Average run time 80.188s
+--- Descending test
+ 1/ 6: fill 0.232s, run 81.312s, 0 errors.
+ 2/ 6: fill 0.231s, run 81.457s, 0 errors.
+ 3/ 6: fill 0.232s, run 81.284s, 0 errors.
+ 4/ 6: fill 0.231s, run 81.370s, 0 errors.
+ 5/ 6: fill 0.231s, run 81.170s, 0 errors.
+ 6/ 6: fill 0.232s, run 81.309s, 0 errors.
+Average run time 81.317s
+--- Shuffle test
+ 1/ 6: fill 28.557s, run 256.162s, 0 errors.
+ 2/ 6: fill 28.627s, run 256.789s, 0 errors.
+ 3/ 6: fill 28.630s, run 256.045s, 0 errors.
+ 4/ 6: fill 28.464s, run 255.980s, 0 errors.
+ 5/ 6: fill 28.473s, run 254.612s, 0 errors.
+ 6/ 6: fill 28.272s, run 254.486s, 0 errors.
+Average run time 255.679s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.233s, run 24.035s, 0 errors.
+ 2/ 6: fill 0.231s, run 24.018s, 0 errors.
+ 3/ 6: fill 0.231s, run 23.986s, 0 errors.
+ 4/ 6: fill 0.230s, run 23.994s, 0 errors.
+ 5/ 6: fill 0.232s, run 24.077s, 0 errors.
+ 6/ 6: fill 0.231s, run 24.012s, 0 errors.
+Average run time 24.020s
+--- Descending test
+ 1/ 6: fill 0.231s, run 24.524s, 0 errors.
+ 2/ 6: fill 0.230s, run 24.501s, 0 errors.
+ 3/ 6: fill 0.230s, run 24.489s, 0 errors.
+ 4/ 6: fill 0.230s, run 24.481s, 0 errors.
+ 5/ 6: fill 0.230s, run 24.497s, 0 errors.
+ 6/ 6: fill 0.231s, run 24.481s, 0 errors.
+Average run time 24.495s
+--- Shuffle test
+ 1/ 6: fill 28.243s, run 73.140s, 0 errors.
+ 2/ 6: fill 28.357s, run 73.144s, 0 errors.
+ 3/ 6: fill 28.389s, run 73.202s, 0 errors.
+ 4/ 6: fill 28.262s, run 73.189s, 0 errors.
+ 5/ 6: fill 28.683s, run 73.208s, 0 errors.
+ 6/ 6: fill 28.270s, run 73.321s, 0 errors.
+Average run time 73.201s
++ ./test 700000000 6 6 6
+700,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.735s, run 95.166s, 0 errors.
+ 2/ 6: fill 0.269s, run 95.079s, 0 errors.
+ 3/ 6: fill 0.269s, run 94.904s, 0 errors.
+ 4/ 6: fill 0.270s, run 95.079s, 0 errors.
+ 5/ 6: fill 0.269s, run 95.272s, 0 errors.
+ 6/ 6: fill 0.269s, run 95.195s, 0 errors.
+Average run time 95.116s
+--- Descending test
+ 1/ 6: fill 0.269s, run 98.233s, 0 errors.
+ 2/ 6: fill 0.270s, run 98.475s, 0 errors.
+ 3/ 6: fill 0.269s, run 98.237s, 0 errors.
+ 4/ 6: fill 0.269s, run 98.363s, 0 errors.
+ 5/ 6: fill 0.269s, run 97.913s, 0 errors.
+ 6/ 6: fill 0.269s, run 98.878s, 0 errors.
+Average run time 98.350s
+--- Shuffle test
+ 1/ 6: fill 33.810s, run 306.692s, 0 errors.
+ 2/ 6: fill 34.639s, run 307.565s, 0 errors.
+ 3/ 6: fill 34.877s, run 306.146s, 0 errors.
+ 4/ 6: fill 33.752s, run 306.211s, 0 errors.
+ 5/ 6: fill 33.898s, run 307.479s, 0 errors.
+ 6/ 6: fill 33.993s, run 307.184s, 0 errors.
+Average run time 306.880s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.269s, run 28.552s, 0 errors.
+ 2/ 6: fill 0.270s, run 28.468s, 0 errors.
+ 3/ 6: fill 0.269s, run 28.441s, 0 errors.
+ 4/ 6: fill 0.270s, run 28.450s, 0 errors.
+ 5/ 6: fill 0.270s, run 28.688s, 0 errors.
+ 6/ 6: fill 0.269s, run 28.442s, 0 errors.
+Average run time 28.507s
+--- Descending test
+ 1/ 6: fill 0.269s, run 29.274s, 0 errors.
+ 2/ 6: fill 0.269s, run 28.998s, 0 errors.
+ 3/ 6: fill 0.269s, run 29.101s, 0 errors.
+ 4/ 6: fill 0.269s, run 28.933s, 0 errors.
+ 5/ 6: fill 0.269s, run 28.960s, 0 errors.
+ 6/ 6: fill 0.276s, run 28.919s, 0 errors.
+Average run time 29.031s
+--- Shuffle test
+ 1/ 6: fill 34.334s, run 86.882s, 0 errors.
+ 2/ 6: fill 34.359s, run 86.576s, 0 errors.
+ 3/ 6: fill 33.941s, run 86.641s, 0 errors.
+ 4/ 6: fill 34.601s, run 86.454s, 0 errors.
+ 5/ 6: fill 34.299s, run 86.550s, 0 errors.
+ 6/ 6: fill 40.051s, run 86.459s, 0 errors.
+Average run time 86.594s
++ ./test 800000000 6 6 6
+800,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.837s, run 109.798s, 0 errors.
+ 2/ 6: fill 0.308s, run 110.070s, 0 errors.
+ 3/ 6: fill 0.309s, run 110.773s, 0 errors.
+ 4/ 6: fill 0.315s, run 109.925s, 0 errors.
+ 5/ 6: fill 0.309s, run 111.943s, 0 errors.
+ 6/ 6: fill 0.308s, run 109.988s, 0 errors.
+Average run time 110.416s
+--- Descending test
+ 1/ 6: fill 0.308s, run 114.562s, 0 errors.
+ 2/ 6: fill 0.308s, run 114.176s, 0 errors.
+ 3/ 6: fill 0.308s, run 114.427s, 0 errors.
+ 4/ 6: fill 0.308s, run 114.334s, 0 errors.
+ 5/ 6: fill 0.308s, run 114.388s, 0 errors.
+ 6/ 6: fill 0.308s, run 114.567s, 0 errors.
+Average run time 114.409s
+--- Shuffle test
+ 1/ 6: fill 39.132s, run 360.110s, 0 errors.
+ 2/ 6: fill 39.173s, run 359.853s, 0 errors.
+ 3/ 6: fill 39.125s, run 359.970s, 0 errors.
+ 4/ 6: fill 39.125s, run 360.055s, 0 errors.
+ 5/ 6: fill 39.302s, run 360.420s, 0 errors.
+ 6/ 6: fill 39.156s, run 359.741s, 0 errors.
+Average run time 360.025s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.308s, run 32.601s, 0 errors.
+ 2/ 6: fill 0.309s, run 32.637s, 0 errors.
+ 3/ 6: fill 0.308s, run 32.595s, 0 errors.
+ 4/ 6: fill 0.308s, run 32.605s, 0 errors.
+ 5/ 6: fill 0.308s, run 32.594s, 0 errors.
+ 6/ 6: fill 0.308s, run 32.601s, 0 errors.
+Average run time 32.606s
+--- Descending test
+ 1/ 6: fill 0.309s, run 33.352s, 0 errors.
+ 2/ 6: fill 0.314s, run 33.206s, 0 errors.
+ 3/ 6: fill 0.308s, run 33.286s, 0 errors.
+ 4/ 6: fill 0.309s, run 33.241s, 0 errors.
+ 5/ 6: fill 0.309s, run 33.257s, 0 errors.
+ 6/ 6: fill 0.308s, run 33.246s, 0 errors.
+Average run time 33.265s
+--- Shuffle test
+ 1/ 6: fill 39.102s, run 99.272s, 0 errors.
+ 2/ 6: fill 39.166s, run 99.194s, 0 errors.
+ 3/ 6: fill 39.279s, run 98.900s, 0 errors.
+ 4/ 6: fill 39.144s, run 98.856s, 0 errors.
+ 5/ 6: fill 39.172s, run 98.990s, 0 errors.
+ 6/ 6: fill 39.168s, run 99.019s, 0 errors.
+Average run time 99.038s
++ ./test 900000000 6 6 6
+900,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 0.937s, run 142.799s, 0 errors.
+ 2/ 6: fill 0.346s, run 136.840s, 0 errors.
+ 3/ 6: fill 0.346s, run 126.128s, 0 errors.
+ 4/ 6: fill 0.346s, run 124.729s, 0 errors.
+ 5/ 6: fill 0.348s, run 125.865s, 0 errors.
+ 6/ 6: fill 0.346s, run 124.706s, 0 errors.
+Average run time 130.178s
+--- Descending test
+ 1/ 6: fill 0.347s, run 128.522s, 0 errors.
+ 2/ 6: fill 0.346s, run 129.891s, 0 errors.
+ 3/ 6: fill 0.346s, run 129.055s, 0 errors.
+ 4/ 6: fill 0.346s, run 129.493s, 0 errors.
+ 5/ 6: fill 0.346s, run 128.888s, 0 errors.
+ 6/ 6: fill 0.347s, run 128.900s, 0 errors.
+Average run time 129.125s
+--- Shuffle test
+ 1/ 6: fill 44.727s, run 413.183s, 0 errors.
+ 2/ 6: fill 46.048s, run 412.644s, 0 errors.
+ 3/ 6: fill 44.401s, run 413.381s, 0 errors.
+ 4/ 6: fill 44.677s, run 413.378s, 0 errors.
+ 5/ 6: fill 44.821s, run 412.694s, 0 errors.
+ 6/ 6: fill 44.756s, run 413.360s, 0 errors.
+Average run time 413.107s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.346s, run 37.074s, 0 errors.
+ 2/ 6: fill 0.346s, run 36.891s, 0 errors.
+ 3/ 6: fill 0.346s, run 36.929s, 0 errors.
+ 4/ 6: fill 0.354s, run 36.859s, 0 errors.
+ 5/ 6: fill 0.347s, run 37.018s, 0 errors.
+ 6/ 6: fill 0.346s, run 37.173s, 0 errors.
+Average run time 36.991s
+--- Descending test
+ 1/ 6: fill 0.347s, run 37.599s, 0 errors.
+ 2/ 6: fill 0.346s, run 37.630s, 0 errors.
+ 3/ 6: fill 0.346s, run 37.579s, 0 errors.
+ 4/ 6: fill 0.346s, run 37.667s, 0 errors.
+ 5/ 6: fill 0.346s, run 37.827s, 0 errors.
+ 6/ 6: fill 0.347s, run 37.526s, 0 errors.
+Average run time 37.638s
+--- Shuffle test
+ 1/ 6: fill 44.435s, run 112.535s, 0 errors.
+ 2/ 6: fill 44.358s, run 112.703s, 0 errors.
+ 3/ 6: fill 44.816s, run 112.529s, 0 errors.
+ 4/ 6: fill 44.780s, run 112.613s, 0 errors.
+ 5/ 6: fill 44.354s, run 112.813s, 0 errors.
+ 6/ 6: fill 44.669s, run 112.606s, 0 errors.
+Average run time 112.633s
++ ./test 1000000000 6 6 6
+1,000,000,000 items in array.
+=== Heap Sort ===
+--- Ascending test
+ 1/ 6: fill 1.044s, run 140.577s, 0 errors.
+ 2/ 6: fill 0.387s, run 139.883s, 0 errors.
+ 3/ 6: fill 0.388s, run 139.963s, 0 errors.
+ 4/ 6: fill 0.388s, run 139.644s, 0 errors.
+ 5/ 6: fill 0.389s, run 139.768s, 0 errors.
+ 6/ 6: fill 0.388s, run 139.765s, 0 errors.
+Average run time 139.933s
+--- Descending test
+ 1/ 6: fill 0.389s, run 144.493s, 0 errors.
+ 2/ 6: fill 0.389s, run 144.767s, 0 errors.
+ 3/ 6: fill 0.388s, run 144.659s, 0 errors.
+ 4/ 6: fill 0.387s, run 144.716s, 0 errors.
+ 5/ 6: fill 0.387s, run 144.621s, 0 errors.
+ 6/ 6: fill 0.388s, run 144.474s, 0 errors.
+Average run time 144.622s
+--- Shuffle test
+ 1/ 6: fill 50.944s, run 468.023s, 0 errors.
+ 2/ 6: fill 50.953s, run 468.627s, 0 errors.
+ 3/ 6: fill 51.018s, run 468.323s, 0 errors.
+ 4/ 6: fill 51.175s, run 468.619s, 0 errors.
+ 5/ 6: fill 51.281s, run 468.719s, 0 errors.
+ 6/ 6: fill 51.548s, run 468.817s, 0 errors.
+Average run time 468.521s
+=== Merge Sort ===
+--- Ascending test
+ 1/ 6: fill 0.388s, run 41.357s, 0 errors.
+ 2/ 6: fill 0.394s, run 41.027s, 0 errors.
+ 3/ 6: fill 0.387s, run 41.002s, 0 errors.
+ 4/ 6: fill 0.386s, run 41.099s, 0 errors.
+ 5/ 6: fill 0.386s, run 41.046s, 0 errors.
+ 6/ 6: fill 0.387s, run 41.219s, 0 errors.
+Average run time 41.125s
+--- Descending test
+ 1/ 6: fill 0.386s, run 42.112s, 0 errors.
+ 2/ 6: fill 0.387s, run 41.798s, 0 errors.
+ 3/ 6: fill 0.386s, run 41.821s, 0 errors.
+ 4/ 6: fill 0.387s, run 42.829s, 0 errors.
+ 5/ 6: fill 0.389s, run 41.813s, 0 errors.
+ 6/ 6: fill 0.387s, run 41.813s, 0 errors.
+Average run time 42.031s
+--- Shuffle test
+ 1/ 6: fill 51.589s, run 125.339s, 0 errors.
+ 2/ 6: fill 51.576s, run 125.685s, 0 errors.
+ 3/ 6: fill 51.705s, run 125.660s, 0 errors.
+ 4/ 6: fill 50.875s, run 125.462s, 0 errors.
+ 5/ 6: fill 51.549s, run 125.261s, 0 errors.
+ 6/ 6: fill 51.982s, run 125.402s, 0 errors.
+Average run time 125.468s

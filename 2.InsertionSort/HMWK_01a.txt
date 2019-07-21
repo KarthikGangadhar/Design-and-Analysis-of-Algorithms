@@ -1,0 +1,270 @@
+#----------------------------------------------------------------------
+Programming Assignment 01a
+
+#----------------------------------------------------------------------
+Purpose:
+
+  * Demonstrate that you are Smarter Than a Fifth Grader by
+    writing a simple Insertion Sort in C.
+
+#----------------------------------------------------------------------
+Background:
+
+  * We've covered Insertion Sort in nauseating detail in class.
+    Now you get to show that your are Smarter Than a Fifth Grader
+    by actually writing this sort in C.
+
+  * You get for free a template file (insertionSort.c) in which
+    all you have to do is write the actual sort.
+
+  * You also get for free a spiffy test harness that will call
+    your sort routine supplying an input array that is already in
+    ascending order, in descending order, or in shuffled (random)
+    order.
+
+  * This harness will also time how long your routine takes, run
+    the tests a given number of times (and average their
+    performance), and check whether the output is in the correct
+    order.  Nifty, huh?
+
+#----------------------------------------------------------------------
+Tasks:
+
+  1. Download HMWK_01a_dalioba.zip from Blackboard.
+
+  2. Unzip the file somewhere convenient.
+
+  3. Change 'dalioba' in the name of the directory to your NetID.
+     (Your NetID is three letters followed by four or five digits.
+      The directory name will now be something like
+      'hmwk_01a_abc1234', but with YOUR NetID instead of
+      'abc1234'.  Do NOT use your Student ID!  Use your NetID!)
+
+  4. Look in that directory.
+
+  5. Change the header lines in the template file insertionSort.c.
+
+      -- Line 1:  Family name first, then a comma, then
+                  personal name.
+
+      -- Line 2:  Your NetID.
+
+      -- Line 3:  The date you edited the file, YYYY-MM-DD.
+
+  6. Do NOT change anything in any of the other files.
+
+  7. Before writing your version of the Insertion Sort, compile
+     and run the test using these commands:
+
+      $ gcc -o test testInsertionSort.c insertionSort.c support.c
+
+      $ ./test 1000 1 1 1
+
+     In that test command, the '1000' means test the sorting
+     algorithm on an array of 1000 elements.  The '1 1 1' means to
+     do one test with the input elements in ascending order, one
+     test with the elements in descending order, and one test with
+     the elements in shuffled order.
+
+     You should see output similar to this:
+
+=== Insertion Sort ===
+1,000 items in array.
+--- Ascending test
+ 1/ 1: fill 0.000s, run 0.000s, 0 errors.
+--- Descending test
+Oops: A[0] >= A[1] : 1,000 >= 999
+Oops: A[1] >= A[2] : 999 >= 998
+Oops: A[2] >= A[3] : 998 >= 997
+Oops: A[3] >= A[4] : 997 >= 996
+Oops: A[4] >= A[5] : 996 >= 995
+  ...
+ 1/ 1: fill 0.000s, run 0.000s, 999 errors.
+--- Shuffle test
+Oops: A[0] >= A[1] : 661 >= 34
+Oops: A[3] >= A[4] : 766 >= 136
+Oops: A[5] >= A[6] : 712 >= 367
+Oops: A[7] >= A[8] : 529 >= 267
+Oops: A[10] >= A[11] : 507 >= 112
+  ...
+ 1/ 1: fill 0.000s, run 0.000s, 513 errors.
+
+     Notice that the test harness ran one ascending test, one
+     descending test, and one shuffled test and each test was on
+     an input array of 1000 elements.
+
+     Also notice that the descending and shuffled tests failed
+     since you haven't written your sort yet.
+
+     The descending test had 999 elements out of order.  (Why
+     isn't this 1000 elements out of order?)
+
+     The shuffled input array is in a random order, so on average
+     it will have about half of the elements out of order.  You
+     will (probably) see a different number of elements out of
+     order.  Run the shuffled test a few times to see the varying
+     number of elements that are detected as out of order when no
+     sorting is done.
+
+  8. Now take a look at insertionSort.c.  Change lines 13-17 to be
+     an actual Insertion Sort, recompile, and rerun the test.
+     You should now see something like the following:
+
+$ ./test 1000 3 3 3
+=== Insertion Sort ===
+1,000 items in array.
+--- Ascending test
+ 1/ 3: fill 0.000s, run 0.000s, 0 errors.
+ 2/ 3: fill 0.000s, run 0.000s, 0 errors.
+ 3/ 3: fill 0.000s, run 0.000s, 0 errors.
+Average run time 0.000s
+--- Descending test
+ 1/ 3: fill 0.000s, run 0.003s, 0 errors.
+ 2/ 3: fill 0.000s, run 0.003s, 0 errors.
+ 3/ 3: fill 0.000s, run 0.003s, 0 errors.
+Average run time 0.003s
+--- Shuffle test
+ 1/ 3: fill 0.000s, run 0.001s, 0 errors.
+ 2/ 3: fill 0.000s, run 0.001s, 0 errors.
+ 3/ 3: fill 0.000s, run 0.001s, 0 errors.
+Average run time 0.001s
+
+     The run times that you see depend on how fast your machine
+     happens to be.  Also, we went from running each test only
+     once to running them three times each and averaging the
+     amount of time it takes.  That helps even out slight
+     differences in timing.
+
+     If you get a crash or having any errors reported, your sort
+     has some sort of problem.  FIX IT!  Sorts that crash or do
+     not sort correctly score ZERO points.
+
+  9. Here's another test with a more substantial input array:
+
+$ ./test 10000 3 3 3
+=== Insertion Sort ===
+10,000 items in array.
+--- Ascending test
+ 1/ 3: fill 0.000s, run 0.000s, 0 errors.
+ 2/ 3: fill 0.000s, run 0.000s, 0 errors.
+ 3/ 3: fill 0.000s, run 0.000s, 0 errors.
+Average run time 0.000s
+--- Descending test
+ 1/ 3: fill 0.000s, run 0.124s, 0 errors.
+ 2/ 3: fill 0.000s, run 0.121s, 0 errors.
+ 3/ 3: fill 0.000s, run 0.120s, 0 errors.
+Average run time 0.121s
+--- Shuffle test
+ 1/ 3: fill 0.000s, run 0.060s, 0 errors.
+ 2/ 3: fill 0.000s, run 0.060s, 0 errors.
+ 3/ 3: fill 0.000s, run 0.062s, 0 errors.
+Average run time 0.061s
+
+ 10. And here's yet another test with a still bigger input array:
+
+$ ./test 100000 3 3 3
+=== Insertion Sort ===
+100,000 items in array.
+--- Ascending test
+ 1/ 3: fill 0.001s, run 0.001s, 0 errors.
+ 2/ 3: fill 0.000s, run 0.001s, 0 errors.
+ 3/ 3: fill 0.000s, run 0.001s, 0 errors.
+Average run time 0.001s
+--- Descending test
+ 1/ 3: fill 0.001s, run 11.788s, 0 errors.
+ 2/ 3: fill 0.000s, run 11.869s, 0 errors.
+ 3/ 3: fill 0.000s, run 11.779s, 0 errors.
+Average run time 11.812s
+--- Shuffle test
+ 1/ 3: fill 0.001s, run 5.887s, 0 errors.
+ 2/ 3: fill 0.001s, run 5.861s, 0 errors.
+ 3/ 3: fill 0.001s, run 6.064s, 0 errors.
+Average run time 5.938s
+
+ 11. We went from 1000 elements to 10000 elements to 100000
+     elements and the run times for the descending input array
+     went from an average of 0.003 to an average of 0.121 to an
+     average of 11.812.  Can you justify that?
+
+ 12. The average times for the shuffled tests went from 0.001 to
+     0.061 to 5.938.  Can you justify not only the increases but
+     also the relationship to the average times of the descending
+     sort?
+
+#----------------------------------------------------------------------
+Submission:
+
+Make a zipfile of your 'hmwk_01a_abc1234' directory (where
+'abc1234' is replaced with YOUR NetID) and submit it on Blackboard
+as your results for this assignment.  Your submission should be a
+zipfile that has exactly one item in it, a directory named
+'hmwk_01a_abc1234' (where 'abc1234' is YOUR NetID).  Inside that
+directory should be your source file, insertionSort.c.
+
+#----------------------------------------------------------------------
+Hints:
+  1. Ensure that you update the three header lines in the
+     insertionSort.c source file with YOUR name (family name
+     first, then a comma, then your personal name), YOUR NetID,
+     and the date you edit the file.
+
+     Not updating the header lines properly will cost you points.
+
+  2. Ensure your submission to Blackboard is packaged EXACTLY as
+     described above.
+
+      -- Your submission should be a ZIP FILE (not a tar, rar, gz,
+         or any other kind of compressed file).
+
+      -- The zip file should be named 'hmwk_01a_abc1234.zip' (with
+         'abc1234' replaced with YOUR NetID.).
+
+      -- This zip file should have ONE item in it, a directory
+         named 'hmwk_01a_abc1234'  (with 'abc1234' replaced with
+         YOUR NetID).
+
+      -- Your source file should be in that directory.  The
+         source file should be named insertionSort.c.
+
+     Submissions in the wrong format score ZERO points.
+
+  3. Ensure your program compiles and runs correctly.  Not
+     compiling or crashing or not correctly sorting will cost you
+     points.
+
+  4. The most common mistake is not taking into account that the
+     algorithm as discussed in class indexed arrays from 1 to n
+     while C indexes arrays from 0 to n-1.
+
+     This has a SIGNIFICANT effect on manipulating the array.  Be
+     very careful to get your indices correct.
+
+  5. Insertion Sort is not complex.  Frankly, you should be able
+     to write the C version essentially line-for-line from the
+     pseudo-code version we discussed in class.
+
+     The body of the reference version of the Insertion Sort is
+     eleven (11) lines of C code.  (That includes declarations!)
+
+     If you find yourself writing a lot more than this, you are
+     probably making too much out of this assignment.
+
+  6. Ensure your program compiles and runs correctly with
+     ABSOLUTELY NO CHANGES made to ANY file other than the
+     template file insertionSort.c.  Your insertionSort.c file
+     will be tested against the reference version of all of the
+     other files.  If your insertionSort.c does not compile or
+     crashes or incorrectly sorts when tested using the reference
+     versions of the other files, you will score ZERO points.
+
+  7. After you submit your zip file on Blackboard, download it
+     from Blackboard and check that your submission is in the
+     proper format, that the program runs and prints the correct
+     output, and that you updated the header lines correctly in
+     the source file insertionSort.c.
+
+  8. Are you CERTAIN you complied with all of these nit-picking
+     instructions?  Really?  Maybe you ought to check just one
+     more time. :)
+
+#----------------------------------------------------------------------
