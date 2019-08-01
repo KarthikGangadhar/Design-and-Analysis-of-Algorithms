@@ -1,6 +1,6 @@
-// Dalio, Brian A.
-// dalioba
-// 2019-07-25
+// Gangadhara, Karthik.
+// kxg7851
+// 2019-07-31
 //--------#---------#---------#---------#--------#
 #include <ctype.h>
 #include <stdio.h>
@@ -8,139 +8,114 @@
 
 #include "Huffman.h"
 
+static void minHeapify( HuffmanHeapPtr h, int i );
 //--------#---------#---------#---------#--------#
 static inline void exchangePtr( HuffmanNodePtr *a, HuffmanNodePtr *b ) \
-  { /* PUT SOMETHING HERE */ }
+  {  HuffmanNodePtr c = *a; *a = *b; *b = c; }
 
 //--------#---------#---------#---------#--------#
-static inline int LEFT(int i)   { /* PUT SOMETHING HERE */ }
-static inline int RIGHT(int i)  { /* PUT SOMETHING HERE */ }
-static inline int PARENT(int i) { /* PUT SOMETHING HERE */ }
+static inline int LEFT(int i)   { return (2*i+1); }
+static inline int RIGHT(int i)  { return (2*i+2); }
+static inline int PARENT(int i) { return ((i-1)/2); }
 
 //--------#---------#---------#---------#--------#
 void addElement( HuffmanHeapPtr h, HuffmanNodePtr newNodePtr )
 {
-  //********//********//********//********//******//
-  // Put your ADD-ELEMENT routine here.
-  // h is a pointer to a HuffmanHeap structure, defined in
-  //    Huffman.h.
-  // newNodePtr is a pointer to the HuffmanNode to add to the
-  //    heap.
-  //
-  // There's an exchangePtr() routine above that will help.
-  //********//********//********//********//******//
+  int i = h-> heapsize;
+  (h-> heapsize) = h-> heapsize + 1;
+  while(i!=0 && (newNodePtr->frequency) < (h->A[PARENT(i)]->frequency)){
+     exchangePtr(&(h->A[i]), &(h->A[PARENT(i)]));
+      i = PARENT(i);
+  }
+  h->A[i] = newNodePtr;
 }
 
 //--------#---------#---------#---------#--------#
 HuffmanNodePtr buildHuffmanCode( HuffmanHeapPtr h )
 {
-  //********//********//********//********//******//
-  // Put your BUILD-HUFFMAN-CODE routine here.
-  // h is a pointer to a HuffmanHeap structure, defined in
-  //    Huffman.h.
-  //
-  // Return a pointer to the HuffmanNode that's the root of the
-  //    code was built.
-  //********//********//********//********//******//
+  while (h->heapsize > 1)
+  {
+    HuffmanNodePtr m = extractMin(h);
+    HuffmanNodePtr n = extractMin(h);
+
+    HuffmanNodePtr o = makeHuffmanNode(-1, m->frequency + n->frequency);
+    o->left=m;
+    o->right=n;
+    addElement(h,o);
+  }
+  return extractMin(h);
+ 
 }
 
 //--------#---------#---------#---------#--------#
 int dumpHuffmanCode( HuffmanNodePtr n )
-{
-  //********//********//********//********//******//
-  // Put your DUMP-HUFFMAN-CODE routine here.
-  // n is a pointer to the root HuffmanNode struture that makes
-  //    up this code.
-  //
-  // Each line that you print should be in this form:
-  //
-  //    <char> : <count> : <code>
-  //
-  // where:
-  //    <char> is the character. When the character is printable,
-  //        print it as 'c' (replace c with the particular
-  //        character).  When the the character is not printable,
-  //        print it as a three-digit decimal number, with leading
-  //        zeroes.  [ FYI: In the "War and Peace" sample text,
-  //        the only non-printable characters are carriage return
-  //        (character 13, printed as 013) and line feed
-  //        (character 10, printed as 010). ]
-  //
-  //    <count> is how many times the character occurs in the
-  //        input file.
-  //
-  //    <code> is the computed Huffman code.
-  //
-  // For example, here are two of the output lines from the
-  // "War and Peace" sample text.  One is a non-printable
-  // character, the other is a printable character.
-  //
-  //    010  :  65656 : 111011
-  //    'A'  :   6492 : 100110100
-  //
-  // Match this output format so your code can be checked!  Output
-  // not in this format scores ZERO points!
-  //
-  // Return the total number of bits used by this code to
-  //    represent the given text.  (This is just the sum of how
-  //    often each character appears multiplied by how many bits
-  //    used by the code of that character.)
-  //********//********//********//********//******//
+{  
+    char arr[128];
+    int root = 0;
+    if(n->left != NULL)
+    {
+      dumpHuffmanCode(n->left);
+    }
+    if(n->right != NULL)    
+    {
+      dumpHuffmanCode(n->right);
+    }
+    if(n->left == NULL && n->right == NULL)
+    {
+      printArr(arr, root);
+    }
 }
 
 //--------#---------#---------#---------#--------#
 HuffmanNodePtr extractMin( HuffmanHeapPtr h )
 {
-  //********//********//********//********//******//
-  // Put your EXTRACT-MIN routine here.
-  // h is a pointer to a HuffmanHeap structure, defined in
-  //    Huffman.h.
-  //
-  // Return a pointer to the HuffmanNode that you extracted fro
-  //    the heap.
-  //********//********//********//********//******//
+  HuffmanNodePtr root = h->A[0];
+  h->A[0] = h->A[h->heapsize - 1];
+  h->heapsize = h->heapsize - 1;
+  minHeapify(h, 0);
+  return root;
 }
 
 //--------#---------#---------#---------#--------#
 HuffmanHeapPtr makeHuffmanHeap( int size )
 {
-  //********//********//********//********//******//
-  // Put your MAKE-HUFFMAN-HEAP routine here.
-  // size is the maxium number of elements that will ever be in
-  //    the heap.
-  //
-  // Return a pointer to the HuffmanHeap structure you allocate
-  //    and initialize.  (calloc() will be useful.)
-  //********//********//********//********//******//
+    HuffmanHeapPtr huffmanHeap = (HuffmanHeapPtr) calloc(size, sizeof(HuffmanHeap)); 
+    huffmanHeap -> size = size;  
+    huffmanHeap -> heapsize = 0;
+    huffmanHeap -> A = calloc(huffmanHeap-> size, sizeof(HuffmanNodePtr));
+    return huffmanHeap; 
 }
 
 //--------#---------#---------#---------#--------#
 HuffmanNodePtr makeHuffmanNode( int character, int frequency )
 {
-  //********//********//********//********//******//
-  // Put your MAKE-HUFFMAN-NODE routine here.
-  // character is the ASCII code of the character to which this
-  //    node corresponds or -1 if it's an interior node.
-  // frequency is the number of times the character appears in
-  //    the text or the sum of the frequencies of the subtrees
-  //    when it's an interior node.
-  //
-  // Return a pointer to the Huffmanode structure you allocate and
-  //    initialize.  (calloc() will be useful.)
-  //********//********//********//********//******//
+  HuffmanNode* temp = (HuffmanNode*) malloc(sizeof(HuffmanNode)); 
+  if(temp){
+    temp->left= NULL;
+    temp -> right = NULL;
+    temp ->character = character;
+    temp ->frequency = frequency;
+  }
+  return temp; 
 }
 
 //--------#---------#---------#---------#--------#
 static void minHeapify( HuffmanHeapPtr h, int i )
 {
-  //********//********//********//********//******//
-  // Put your MIN-HEAPIFY routine here.
-  // h is a pointer to a HuffmanHeap structure, defined in
-  //    Huffman.h.
-  // i is the root of the subtree to minHeapify.
-  //
-  // There's an exchangePtr() routine above that will help.
-  //********//********//********//********//******//
+  int l = LEFT(i);
+  int r = RIGHT(i);
+  int smallest;
+  if(l < h->heapsize && h->A[l]-> frequency < h->A[i] -> frequency )
+    smallest = l;
+  else{
+    smallest = i;
+  }
+  if(l < h->heapsize && h->A[r]-> frequency < h->A[smallest]-> frequency )
+    smallest = r;
+  if(smallest != i){
+    exchangePtr(&h->A[i], &h->A[smallest]);
+    minHeapify(h, smallest);
+  }
 }
 
 //--------#---------#---------#---------#--------#
